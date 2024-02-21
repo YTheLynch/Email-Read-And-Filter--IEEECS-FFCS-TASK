@@ -9,9 +9,9 @@
 5. Upon running GetEmails.py for the first time, 'token.json' gets created
 
 
-## Note:-
+# Note
 'simplegmail' directory contains code that performs the similar task
 Here, our job becomes easier as all the procedural flow of 'GetEmail.py' is wrapped in the module Gmail of simplegmail
-So, it is much more convenient to use simple gmail instead of above
-<b>Important: Follow the same installation steps for this directory as given above, except, rename 'credentials.json' to 'client_secret.json'.
-To run 'main.py', ensure that simplegmail is the parent directory of the current project </b>
+So, it is much more convenient to use simple gmail instead of above </br> </br>
+<b>Important:</b> Follow the same installation steps for this directory as given above, except, rename 'credentials.json' to 'client_secret.json'.
+To run 'main.py', ensure that simplegmail is the parent directory of the current project 
