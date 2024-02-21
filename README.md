@@ -1,5 +1,5 @@
 - Uses Gmail API to obtain Emails received in the past week. 
-- Takes message body data and sends it to HuggingFace API to obtain summarized message and rewards/incentives of joining the event, if any.
+- Takes message body data and sends it to HuggingFace API to obtain summarized message and rewards/incentives of joining the event, if any. (YET TO BE ADDED)
 
 # Installation
 1. Enable Gmail API from Google Cloud Console
