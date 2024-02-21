@@ -29,7 +29,7 @@ def search_messages(service, search_string = "", user_id = 'me'):
             message_ids = search_id['messages']
             for ids in message_ids:
                 id_list.append(ids['id'])
-            
+
             return id_list
         else:
             return []
@@ -38,7 +38,7 @@ def search_messages(service, search_string = "", user_id = 'me'):
         print(f"An error occurred: {error}")
     
 
-def get_message(service, user_id, msg_id):
+def get_message(service, msg_id, user_id = 'me'):
     try:
         message = service.users().messages().get(userId = user_id, id = msg_id, format = 'raw').execute()
         msg_raw = base64.urlsafe_b64decode(message['raw'].encode('ASCII'))
@@ -47,9 +47,7 @@ def get_message(service, user_id, msg_id):
         content_type = msg_str.get_content_maintype()
 
         if content_type == 'multipart':
-            # part1 contains plain text, part2 is html text
-            part1, part2 = msg_str.get_payload()
-            return part1.get_payload()
+            return msg_str
         else:
             return msg_str.get_payload()
 
@@ -89,4 +87,9 @@ def get_service():
 
 
 
-search_messages(get_service(), search_string = f"after:{numdaystosearchquerytime(7)}")
+msg_ids = search_messages(get_service(), search_string = f"after:{numdaystosearchquerytime(7)}")  # get messages for the last n days, here n = 7.
+
+# print(msg_ids)
+
+for msg_id in msg_ids:
+    print(get_message(get_service(), msg_id))
